@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "com.sasha"
-version = "1.0.0"
+version = "1.0.1"
 description = "Collectibles and Mystery Boxes for Fractal Network's lobby: hats, suits, gadgets, cloaks, emotes, gestures, the Mystery Vault and Mystery Dust. Built by Sasha Wildfang."
 
 repositories {
@@ -39,7 +39,8 @@ tasks {
     }
 
     processResources {
-        val props = mapOf("version" to project.version, "description" to project.description)
+        // plugin.yml quotes the description in single quotes, so an apostrophe (Network's) is doubled there.
+        val props = mapOf("version" to project.version, "description" to project.description.toString().replace("'", "''"))
         inputs.properties(props)
         filteringCharset = "UTF-8"
         filesMatching("plugin.yml") {
