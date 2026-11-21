@@ -55,7 +55,7 @@ public final class FractalCosmetics extends JavaPlugin {
         lobby = JavaPlugin.getPlugin(Lobby.class);
         copyFromLobby();
         saveDefaultConfig();
-        messages = Messages.load(this);
+        loadMessages();
         mystery = new MysteryBoxes(this);
         collectibles = new Collectibles(this);
         getServer().getPluginManager().registerEvents(mystery, this);
@@ -79,9 +79,19 @@ public final class FractalCosmetics extends JavaPlugin {
     public void reload() {
         saveDefaultConfig();
         reloadConfig();
-        messages = Messages.load(this);
+        loadMessages();
         mystery.reload();
         collectibles.start();
+    }
+
+    /**
+     * messages.yml, with FractalLobby's choice of click hints: the resource pack's mouse and Shift pictures
+     * (menus.custom-gui in FractalLobby's config.yml, on by default) or the words "Left-click", "Right-click".
+     */
+    private void loadMessages() {
+        messages = Messages.load(this);
+        var config = lobby.getConfig();
+        messages.buttonIcons(config.getBoolean("menus.custom-gui", config.getBoolean("settings-menu.custom-gui", true)));
     }
 
     // ---------------------------------------------------------------- what the cosmetics use

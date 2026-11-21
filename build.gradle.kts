@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "com.sasha"
-version = "1.0.1"
+version = "1.0.2"
 description = "Collectibles and Mystery Boxes for Fractal Network's lobby: hats, suits, gadgets, cloaks, emotes, gestures, the Mystery Vault and Mystery Dust. Built by Sasha Wildfang."
 
 repositories {
