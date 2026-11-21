@@ -1,0 +1,11 @@
+name: FractalCosmetics
+version: '${version}'
+main: com.sasha.cosmetics.FractalCosmetics
+api-version: '1.21.11'
+description: '${description}'
+authors: [Sasha Wildfang]
+depend: [FractalLobby]
+
+# Commands are registered in code through Paper's command API (see FractalCosmetics).
+# Permissions are the ones the Lobby plugin used (lobby.admin, lobby.mystery.*, lobby.collectibles.*),
+# so existing LuckPerms setups keep working.
